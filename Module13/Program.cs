@@ -2,30 +2,22 @@
 {
     internal class Program
     {
-        //task 13.1.4
+        //task 13.1.6
         static void Main(string[] args)
         {
-            int[] ints = new int[int.Parse(Console.ReadLine())];
-            for (int i = 0; i < ints.Length; i++)
-            {
-                ints[i] = int.Parse(Console.ReadLine());
-            }
+            string path = "D:\\YandexAnton\\main\\YandexDisk\\Синхронизация\\Skillfactory\\Module13\\cdev_Text.txt";
 
-            bool isSort = false;
-
-            for (int i = 0; i < ints.Length-1;i++)
+            
+            if (File.Exists(path))
             {
-                if (ints[i+1] > ints[i])
-                {
-                    isSort = true;
-                }
-                else
-                {
-                    isSort = false;
-                    break;
-                }
+                string fileText = File.ReadAllText(path);
+
+                char[] separators = new char[] { ' ', '\r', '\n' };
+
+                string[] words = fileText.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
+                Console.WriteLine(words.Length);
             }
-            Console.WriteLine(isSort);
 
         }
     }
