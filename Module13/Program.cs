@@ -1,33 +1,39 @@
 ﻿using System.Collections;
+using System.Text;
 
 namespace Module13
 {
     internal class Program
     {
-        //task 13.2.5
+        //task 13.2.6
         static void Main(string[] args)
         {
-            var months = new[]
-                {
-                "Jan", "Feb", "Mar", "Apr", "May" , "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-                };
-
-            var numbers = new[]
-                {
-                 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
-                };
-
-            var arList = new ArrayList();
             
-            for (int i = 0; i < months.Length; i++)
+        }
+
+        public static ArrayList method (ArrayList arrayList)
+        {
+            var result = new ArrayList ();
+
+            int SumNumbers = 0;
+            StringBuilder sb = new StringBuilder ();
+
+            foreach(var a in arrayList)
             {
-                arList.Add(months[i]);
-                arList.Add(numbers[i]);
+                if (a is int)
+                {
+                    SumNumbers += (int)a;
+                }
+                else if (a is string)
+                {
+                    sb.Append (a + " ");
+                }
             }
-            foreach (var i in arList)
-            {
-                Console.WriteLine(i);
-            }
+
+            result.Add(SumNumbers);
+            result.Add (sb.ToString ());
+
+            return result;
         }
     }
 }
