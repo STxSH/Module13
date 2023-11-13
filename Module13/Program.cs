@@ -5,35 +5,54 @@ namespace Module13
 {
     internal class Program
     {
-        //task 13.2.6
+        //task 13.3.4
         static void Main(string[] args)
         {
-            
+            List<Contact> contacts = new List<Contact>
+            {
+                new Contact("Игорь", 79990000000, "igor@example.com"),
+                new Contact("Андрей", 79990000001, "andrew@example.com"),
+                new Contact("Игорь1", 79990000000, "igor@example.com"),
+                new Contact("Андрей1", 79990000001, "andrew@example.com"),
+                new Contact("Игорь2", 79990000000, "igor@example.com"),
+                new Contact("Андрей3", 79990000001, "andrew@example.com"),
+            };
+
+            Contact Igor = new Contact("name", 38383838, "3983838");
+
+            AddUnique(Igor, ref contacts);
         }
 
-        public static ArrayList method (ArrayList arrayList)
+        public static void AddUnique(Contact contact, ref List<Contact> phoneBook)
         {
-            var result = new ArrayList ();
-
-            int SumNumbers = 0;
-            StringBuilder sb = new StringBuilder ();
-
-            foreach(var a in arrayList)
+            if(!phoneBook.Contains(contact))
             {
-                if (a is int)
-                {
-                    SumNumbers += (int)a;
-                }
-                else if (a is string)
-                {
-                    sb.Append (a + " ");
-                }
+                phoneBook.Add(contact);
             }
 
-            result.Add(SumNumbers);
-            result.Add (sb.ToString ());
+            phoneBook.Sort((x, y) => x.Name.CompareTo(y.Name));
 
-            return result;
+            foreach (var contac in phoneBook)
+            {
+                Console.WriteLine(contac.Name);
+            }
+
         }
+
+
+    }
+
+    public class Contact // модель класса
+    {
+        public Contact(string name, long phoneNumber, String email) // метод-конструктор
+        {
+            Name = name;
+            PhoneNumber = phoneNumber;
+            Email = email;
+        }
+
+        public String Name { get; }
+        public long PhoneNumber { get; }
+        public String Email { get; }
     }
 }
