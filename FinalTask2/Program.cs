@@ -27,7 +27,7 @@
             var mostCommonWords = wordCount.OrderByDescending(c => c.Value);
 
             Console.WriteLine("Самые часто встречающиеся слова:");
-            int displayedWords = 20;
+            int displayedWords = 10;
 
             foreach (var pair in mostCommonWords)
             {
@@ -48,17 +48,7 @@
                 как: 1304 раз
                 она: 1244 раз
                 я: 1044 раз
-                а: 1002 раз
-                Обломов: 911 раз
-                его: 886 раз
-                все: 869 раз
-                к: 782 раз
-                у: 762 раз
-                это: 735 раз
-                так: 715 раз
-                за: 671 раз
-                Он: 636 раз
-            */
+             */
         }
     }
 }
